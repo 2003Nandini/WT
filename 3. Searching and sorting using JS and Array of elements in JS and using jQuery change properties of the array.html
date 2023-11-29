@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Operations</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+
+<h1>Array Operations</h1>
+
+<!-- Plain JavaScript Section -->
+<section>
+    <h2>Plain JavaScript Example</h2>
+
+    <!-- Search Box -->
+    <label for="search">Search:</label>
+    <input type="text" id="search" oninput="searchArray()">
+
+    <!-- Sorting Buttons -->
+    <button onclick="sortArray('asc')">Sort Ascending</button>
+    <button onclick="sortArray('desc')">Sort Descending</button>
+
+    <!-- Display Result -->
+    <h3>Result:</h3>
+    <ul id="resultPlainJS"></ul>
+
+    <script>
+        // Sample array of elements
+        let originalArrayPlainJS = [
+            { id: 1, name: 'John', age: 25 },
+            { id: 2, name: 'Jane', age: 30 },
+            { id: 3, name: 'Bob', age: 22 },
+            // ... add more elements as needed
+        ];
+
+        // Initialize the result array with the original array
+        let resultArrayPlainJS = [...originalArrayPlainJS];
+
+        // Display the original array initially
+        displayArrayPlainJS(originalArrayPlainJS);
+
+        // Function to display the array using plain JavaScript
+        function displayArrayPlainJS(array) {
+            const resultElement = document.getElementById('resultPlainJS');
+            resultElement.innerHTML = '';
+
+            array.forEach(item => {
+                const listItem = document.createElement('li');
+                listItem.textContent = `ID: ${item.id}, Name: ${item.name}, Age: ${item.age}`;
+                resultElement.appendChild(listItem);
+            });
+        }
+
+        // Function to search the array using plain JavaScript
+        function searchArray() {
+            const searchTerm = document.getElementById('search').value.toLowerCase();
+            resultArrayPlainJS = originalArrayPlainJS.filter(item =>
+                item.name.toLowerCase().includes(searchTerm) || item.age.toString().includes(searchTerm)
+            );
+            displayArrayPlainJS(resultArrayPlainJS);
+        }
+
+        // Function to sort the array using plain JavaScript
+        function sortArray(order) {
+            resultArrayPlainJS.sort((a, b) => {
+                if (order === 'asc') {
+                    return a.name.localeCompare(b.name);
+                } else if (order === 'desc') {
+                    return b.name.localeCompare(a.name);
+                }
+            });
+            displayArrayPlainJS(resultArrayPlainJS);
+        }
+    </script>
+</section>
+
+<!-- jQuery Section -->
+<section>
+    <h2>jQuery Example</h2>
+
+    <!-- Search Box -->
+    <label for="search">Search:</label>
+    <input type="text" id="searchJQuery">
+
+    <!-- Sorting Buttons -->
+    <button onclick="sortArrayJQuery('asc')">Sort Ascending</button>
+    <button onclick="sortArrayJQuery('desc')">Sort Descending</button>
+
+    <!-- Display Result -->
+    <h3>Result:</h3>
+    <ul id="resultJQuery"></ul>
+
+    <script>
+        // Sample array of elements
+        let originalArrayJQuery = [
+            { id: 1, name: 'John', age: 25 },
+            { id: 2, name: 'Jane', age: 30 },
+            { id: 3, name: 'Bob', age: 22 },
+            // ... add more elements as needed
+        ];
+
+        // Initialize the result array with the original array
+        let resultArrayJQuery = [...originalArrayJQuery];
+
+        // Display the original array initially
+        displayArrayJQuery(originalArrayJQuery);
+
+        // Function to display the array using jQuery
+        function displayArrayJQuery(array) {
+            const resultElement = $('#resultJQuery');
+            resultElement.empty();
+
+            array.forEach(item => {
+                const listItem = $('<li>').text(`ID: ${item.id}, Name: ${item.name}, Age: ${item.age}`);
+                resultElement.append(listItem);
+            });
+        }
+
+        // Function to search the array using jQuery
+        $('#searchJQuery').on('input', function () {
+            const searchTerm = $(this).val().toLowerCase();
+            resultArrayJQuery = originalArrayJQuery.filter(item =>
+                item.name.toLowerCase().includes(searchTerm) || item.age.toString().includes(searchTerm)
+            );
+            displayArrayJQuery(resultArrayJQuery);
+        });
+
+        // Function to sort the array using jQuery
+        function sortArrayJQuery(order) {
+            resultArrayJQuery.sort((a, b) => {
+                if (order === 'asc') {
+                    return a.name.localeCompare(b.name);
+                } else if (order === 'desc') {
+                    return b.name.localeCompare(a.name);
+                }
+            });
+            displayArrayJQuery(resultArrayJQuery);
+        }
+    </script>
+</section>
+
+</body>
+</html>

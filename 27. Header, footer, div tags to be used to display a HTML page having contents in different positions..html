@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML Page with Header, Footer, and Content</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+    }
+
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+
+    .content {
+      padding: 20px;
+    }
+
+    .left-content {
+      float: left;
+      width: 30%;
+    }
+
+    .right-content {
+      float: right;
+      width: 60%;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Header</h1>
+  </header>
+
+  <div class="content">
+    <div class="left-content">
+      <h2>Left Content</h2>
+      <p>This is the content on the left side.</p>
+    </div>
+
+    <div class="right-content">
+      <h2>Right Content</h2>
+      <p>This is the content on the right side.</p>
+    </div>
+
+    <div style="clear: both;"></div> <!-- Clear the floats to prevent layout issues -->
+  </div>
+
+  <footer>
+    <p>Footer &copy; 2023</p>
+  </footer>
+
+</body>
+</html>

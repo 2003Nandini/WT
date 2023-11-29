@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chessboard</title>
+  <style>
+    .chessboard {
+      display: grid;
+      grid-template-columns: repeat(var(--size, 8), 1fr);
+      grid-template-rows: repeat(var(--size, 8), 1fr);
+      width: 400px; /* Default width */
+      height: 400px; /* Default height */
+    }
+
+    .cell {
+      width: 100%;
+      height: 100%;
+      background-color: var(--cell-color, #eee);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Chessboard</h1>
+
+  <label for="dimension">Board Dimension:</label>
+  <input type="number" id="dimension" min="1" value="8" oninput="resizeChessboard()">
+
+  <div id="chessboard" class="chessboard"></div>
+
+  <script>
+    function createChessboard(size) {
+      const chessboard = document.getElementById('chessboard');
+      chessboard.style.setProperty('--size', size);
+
+      chessboard.innerHTML = '';
+
+      for (let row = 0; row < size; row++) {
+        for (let col = 0; col < size; col++) {
+          const cell = document.createElement('div');
+          cell.classList.add('cell');
+          cell.style.setProperty('--cell-color', (row + col) % 2 === 0 ? '#eee' : '#333');
+          chessboard.appendChild(cell);
+        }
+      }
+    }
+
+    function resizeChessboard() {
+      const dimensionInput = document.getElementById('dimension');
+      const newSize = parseInt(dimensionInput.value, 10) || 1;
+
+      if (newSize < 1) {
+        dimensionInput.value = 1;
+      }
+
+      createChessboard(newSize);
+    }
+
+    // Initial chessboard creation
+    createChessboard(8);
+  </script>
+
+</body>
+</html>

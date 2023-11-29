@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your Name - CV</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    #video-background {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    #myVideo {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+    }
+
+    .text-white {
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Video background section -->
+  <header id="video-background">
+    <video autoplay muted loop id="myVideo">
+      <source src="your-video.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+    <div class="overlay"></div>
+
+    <!-- Your content on top of the video -->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <h1 class="text-white">Your Name</h1>
+          <p class="text-white">Your Job Title</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main content section -->
+  <section id="about">
+    <div class="container">
+      <div class="row">
+        <!-- Your CV content goes here -->
+        <div class="col-md-6">
+          <h2>About Me</h2>
+          <p>Your bio goes here...</p>
+        </div>
+        <div class="col-md-6">
+          <h2>Skills</h2>
+          <ul>
+            <li>Skill 1</li>
+            <li>Skill 2</li>
+            <!-- Add more skills as needed -->
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    // Additional scripts or functionalities can be added here
+    $(document).ready(function(){
+      // Add your custom scripts here
+    });
+  </script>
+</body>
+</html>
